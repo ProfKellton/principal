@@ -59,7 +59,7 @@ main {
     flex: 1; /* Expande o main para empurrar o footer para baixo */
 }
 
-/* Botão de Embaralhar */
+/* Botão de Embaralhar e Botão Voltar */
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -74,6 +74,13 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+/* Centralizar botão Voltar */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 /* Centralizando o Quebra-Cabeça */
