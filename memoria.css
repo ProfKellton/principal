@@ -1,0 +1,103 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2c2c2c; /* Fundo escuro */
+    color: #f5f5f5; /* Texto claro */
+    text-align: center;
+}
+
+header {
+    background-color: #ff5722; /* Laranja quente */
+    color: white;
+    padding: 10px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #424242; /* Cor de fundo dos cartões */
+    border: 1px solid #f6f4f4; /* Bordas brancas */
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: transform 0.3s;
+}
+
+.card.flipped {
+    background-color: #f2efee; /* Cor do cartão virado */
+    color: white;
+    transform: scale(1.1);
+}
+
+.card img {
+    width: 80%;
+    display: block; /* Alterado para block */
+    visibility: hidden; /* Inicialmente ocultar */
+}
+
+.card.flipped img {
+    visibility: visible; /* Mostrar imagem ao virar */
+}
+
+button {
+    background-color: #ff9800; /* Laranja mais claro para o botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px; /* Aumentar o tamanho do botão */
+    font-size: 18px; /* Aumentar o tamanho da fonte */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #fb8c00; /* Cor ao passar o mouse */
+}
+
+.btn {
+    background-color: #ff9800; /* Laranja mais claro para o botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px; /* Aumentar o tamanho do botão */
+    font-size: 18px; /* Aumentar o tamanho da fonte */
+    text-decoration: none; /* Remover sublinhado */
+    display: inline-block; /* Para que o link se comporte como um botão */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #fb8c00; /* Cor ao passar o mouse */
+}
+
+main {
+    flex: 1; /* Faz com que o main ocupe o espaço disponível */
+}
+
+footer {
+    background-color: #ff5722; /* Laranja quente */
+    color: white;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

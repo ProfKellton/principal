@@ -1,0 +1,124 @@
+/* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1f36;
+    color: #e0e7ff;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #1f2937;
+    color: #e0e7ff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Navegação */
+nav {
+    background-color: #3b506f;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #64748b;
+    color: #e0e7ff;
+}
+
+/* Conteúdo Principal */
+main {
+    text-align: center;
+    margin-top: 20px;
+    flex: 1; /* Expande o main para empurrar o footer para baixo */
+}
+
+/* Botão de Embaralhar */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Centralizando o Quebra-Cabeça */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    width: 320px; /* Definindo uma largura fixa */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Peças */
+.piece {
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.piece.empty {
+    background-color: transparent;
+}
+
+.piece img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Rodapé */
+footer {
+    background-color: #1f2937;
+    color: #94a3b8;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+}

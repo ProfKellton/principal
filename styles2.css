@@ -1,0 +1,243 @@
+/* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1f36; /* Fundo padrão */
+    color: #e0e7ff; /* Cor de texto base */
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita rolagem lateral */
+    text-align: center ;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #1f2937; /* Azul escuro */
+    color: #e0e7ff; /* Texto claro */
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    font-size: 1.5em; /* Aumentei o tamanho da fonte */
+}
+
+/* Navegação */
+nav {
+    background-color: #3b506f; /* Azul intermediário */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para separação */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px; /* Espaçamento entre os itens */
+}
+
+nav ul li a {
+    color: #ffffff; /* Texto branco */
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold; /* Texto mais forte */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+    background-color: #64748b; /* Cor de fundo ao passar o mouse */
+    color: #e0e7ff; /* Cor do texto ao passar o mouse */
+}
+
+/* Imagem de Fundo */
+.background-image {
+    background-image: url(TecnologiaCopia.png); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 10vh 5vw;
+    text-align: center;
+    color: #ffffff; /* Cor de texto sobre a imagem */
+    position: relative;
+    z-index: 1;
+}
+
+.background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 31, 54, 0.75); /* Sobreposição escura para legibilidade */
+    z-index: -1;
+}
+
+.background-image h1 {
+    font-size: 5vw;
+    font-family: 'Georgia', serif; /* Fonte com serifa para contraste */
+    margin-bottom: 20px;
+    color: #60a5fa; /* Azul claro para destaque */
+}
+
+.background-image p {
+    font-size: 2vw;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: #e0e7ff; /* Texto branco suave */
+}
+
+/* Seção de Conteúdo */
+section {
+    padding: 30px 10vw;
+    text-align: center;
+    background-color: rgba(26, 31, 54, 0.5); /* Fundo transparente para visibilidade da imagem */
+    color: #cbd5e1; /* Cor suave para o texto */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin: 20px auto;
+    max-width: 90%; /* Limita a largura máxima */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda leve para definir a caixa */
+}
+
+section h2 {
+    font-size: 4vw;
+    color: #60a5fa; /* Azul claro */
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 1.5vw;
+    line-height: 1.8;
+    color: #e0e7ff; /* Texto branco */
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    color: #ffffff;
+    background-color: #3b82f6; /* Azul vibrante */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    text-align: center;
+    border: none; /* Remove a borda padrão */
+}
+
+.btn:hover {
+    background-color: #1d4ed8; /* Azul mais escuro no hover */
+    color: #ffffff;
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+/* Rodapé */
+footer {
+    background-color: #1f2937; /* Azul escuro */
+    color: #94a3b8; /* Cinza claro */
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}
+
+/* Question Container */
+.question-container {
+    max-width: 600px;
+    margin: 20px auto; /* Adicionado espaçamento superior e inferior */
+    background-color: #2d3748; /* Fundo escuro para as questões */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease;
+}
+
+.question-container:hover {
+    opacity: 0.9; /* Efeito de transparência ao passar o mouse */
+}
+
+.question-header {
+    background-color: #007BFF; /* Azul */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.question p {
+    font-size: 1.2em; /* Tamanho da fonte das perguntas */
+    margin: 15px 0; /* Aumentar o espaçamento acima e abaixo das perguntas */
+    color: #e0e7ff; /* Cor do texto das perguntas */
+}
+
+.question label {
+    display: block;
+    margin-bottom: 10px; /* Espaçamento entre as opções */
+    padding: 10px;
+    background-color: #3b506f; /* Fundo escuro para as alternativas */
+    border-radius: 5px;
+    border: 1px solid #ced4da; /* Borda leve */
+    text-align: left; /* Alinhamento do texto */
+    color: #ffffff; /* Cor do texto dos rótulos */
+    transition: background-color 0.3s; /* Transição ao passar o mouse */
+}
+
+.question label:hover {
+    background-color: #64748b; /* Cor de fundo ao passar o mouse */
+}
+
+/* Resultados */
+.result {
+    text-align: center;
+    background-color: #2d3748; /* Fundo escuro para resultados */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.result h1 {
+    color: #60a5fa; /* Azul claro para o título */
+    font-size: 2em; /* Tamanho maior do título */
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif; /* Fonte com serifa para destaque */
+}
+
+.result p {
+    font-size: 1.2em; /* Tamanho do texto */
+    color: #e0e7ff; /* Texto claro para melhor legibilidade */
+    margin-bottom: 20px;
+}
+
+.result ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.correct-answer {
+    color: #22c55e; /* Verde para resposta correta */
+    font-weight: bold;
+}
+
+.wrong-answer {
+    color: #ef4444; /* Vermelho para respostas erradas */
+    font-weight: bold;
+}

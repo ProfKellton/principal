@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Exercícios - Mídias Sociais</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <h1>Exercícios - Mídias Sociais</h1>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#cursos">Cursos</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+            <li><a href="index.html#jogos">Jogos</a></li>
+        </ul>
+    </nav>
+
+    <form id="quizForm">
+        <div class="question-container">
+            <div class="question-header">Questão 1</div>
+            <div class="question">
+                <p>Qual é a principal função das mídias sociais?</p>
+                <label><input type="radio" name="q1" value="a"> Publicar artigos acadêmicos</label>
+                <label><input type="radio" name="q1" value="b"> Desenvolver softwares empresariais</label>
+                <label><input type="radio" name="q1" value="c"> Fazer compras online</label>
+                <label><input type="radio" name="q1" value="d"> Compartilhar conteúdo e conectar pessoas ao redor do mundo</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 2</div>
+            <div class="question">
+                <p>Qual rede social é conhecida por seus vídeos curtos e virais?</p>
+                <label><input type="radio" name="q2" value="a"> Facebook</label>
+                <label><input type="radio" name="q2" value="b"> Twitter</label>
+                <label><input type="radio" name="q2" value="c"> LinkedIn</label>
+                <label><input type="radio" name="q2" value="d"> TikTok</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 3</div>
+            <div class="question">
+                <p>Qual rede social é amplamente usada para networking profissional?</p>
+                <label><input type="radio" name="q3" value="a"> Instagram</label>
+                <label><input type="radio" name="q3" value="b"> LinkedIn</label>
+                <label><input type="radio" name="q3" value="c"> Pinterest</label>
+                <label><input type="radio" name="q3" value="d"> WhatsApp</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 4</div>
+            <div class="question">
+                <p>Qual plataforma de mídia social pertence ao Facebook e é amplamente usada para compartilhar fotos?</p>
+                <label><input type="radio" name="q4" value="a"> Twitter</label>
+                <label><input type="radio" name="q4" value="b"> Snapchat</label>
+                <label><input type="radio" name="q4" value="c"> Instagram</label>
+                <label><input type="radio" name="q4" value="d"> TikTok</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 5</div>
+            <div class="question">
+                <p>Qual termo descreve o uso de influenciadores para promover produtos em mídias sociais?</p>
+                <label><input type="radio" name="q5" value="a"> Marketing de Influência</label>
+                <label><input type="radio" name="q5" value="b"> Marketing de Conteúdo</label>
+                <label><input type="radio" name="q5" value="c"> Marketing de Afiliados</label>
+                <label><input type="radio" name="q5" value="d"> E-mail Marketing</label>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button type="button" class="btn" onclick="submitAnswers()">Enviar Respostas</button>
+        </div>
+    </form>
+    <p><a href="index.html" class="btn">Voltar para a Página Inicial</a></p>
+    <footer>
+        <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function submitAnswers() {
+            const form = document.getElementById('quizForm');
+            const correctAnswers = {
+                q1: 'd', // Resposta correta para a Questão 1
+                q2: 'd', // Resposta correta para a Questão 2
+                q3: 'b', // Resposta correta para a Questão 3
+                q4: 'c', // Resposta correta para a Questão 4
+                q5: 'a'  // Resposta correta para a Questão 5
+            };
+
+            const userAnswers = {};
+            let score = 0;
+            let wrongAnswers = [];
+
+            for (let i = 1; i <= 5; i++) {
+                const question = `q${i}`;
+                const selectedOption = form[question].value;
+                userAnswers[question] = selectedOption;
+
+                if (selectedOption === correctAnswers[question]) {
+                    score++;
+                } else {
+                    wrongAnswers.push({question: i, correct: correctAnswers[question], user: selectedOption});
+                }
+            }
+
+            const percentage = (score / 5) * 100;
+
+            let resultContent = `
+                <div class="result">
+                    <h1>Resultado</h1>
+                    <p>Sua pontuação: <strong>${score} de 5 (${percentage}%)</strong></p>
+                    <h2>Questões Erradas:</h2>
+                    <ul>
+            `;
+
+            if (wrongAnswers.length === 0) {
+                resultContent += `<li><span class ="correct-answer">Parabéns! Você acertou todas as questões!</span></li>`;
+            } else {
+                resultContent += wrongAnswers.map(wrong => `
+                    <li>
+                        <span class="wrong-answer">Questão ${wrong.question}: 
+                        Sua resposta: ${wrong.user}, Correta: ${wrong.correct}</span>
+                    </li>
+                `).join('');
+            }
+
+            resultContent += `</ul></div>`;
+
+            document.body.innerHTML = resultContent;
+        }
+    </script>
+</body>
+</html>

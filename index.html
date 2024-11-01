@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos do Professor Kellton Rodrigo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #3b82f6; /* Azul vibrante */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}
+
+        /* Estilo das caixas de seleção navegáveis */
+        .course-carousel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            overflow: hidden;
+            width: 100%; /* Ajusta a largura do carrossel */
+            cursor: grab;
+        }
+    
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            overflow-x: auto; /* Add this to enable horizontal scrolling */
+        }
+    
+        .course-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 200px; /* Tamanho fixo dos itens */
+            margin: 0 10px; /* Margem lateral entre os cursos */
+        }
+    
+        .course-carousel img {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+    
+        .course-carousel img:hover {
+            transform: scale(1.1);
+        }
+    
+        .course-name {
+            margin-top: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+    
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    
+        .arrow {
+            font-size: 30px;
+            cursor: pointer;
+            user-select: none;
+            margin: 0 10px;
+        }
+    
+        /* Barra de rolagem centralizada */
+        .scrollbar {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 10px 0;
+            /* Centralizando com flexbox */
+            max-width: 500px; /* Define uma largura máxima para a barra de rolagem */
+            margin: 10px auto; /* Margem automática para centralizar */
+        }
+    
+        .scrollbar input {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .loading span {
+            animation: blink 1s infinite;
+        }
+
+        .loading span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    
+        /* Estilos para dispositivos móveis */
+        @media (max-width: 768px) {
+            .course-item {
+                min-width: 150px; /* Diminui a largura dos cursos no celular */
+            }
+    
+            .course-carousel img {
+                width: 150px;
+                height: 150px;
+            }
+    
+            .arrow {
+                font-size: 24px;
+            }
+    
+            .carousel-controls {
+                justify-content: space-between;
+            }
+
+            /* Ajustes para o vídeo em dispositivos móveis */
+            #video video {
+                width: 100%;
+                height: auto;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .course-item {
+                min-width: 120px; /* Ajuste adicional para telas menores */
+            }
+    
+            .course-carousel img {
+                width: 120px;
+                height: 120px;
+            }
+    
+            .arrow {
+                font-size: 20px;
+            }
+        }
+    </style>    
+</head>
+<body>
+    <header>
+        <h1>Cursos do professor Kellton Rodrigo</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#jogos">Jogos</a></li>
+        </ul>
+        </ul>
+    </nav>
+    <div class="background-image">
+        <section id="home">
+            <h2>Bem-vindo!</h2>
+            <br>
+            <p>Descubra os cursos oferecidos pelo Professor Kellton Rodrigo e melhore suas habilidades com nossa formação de alta qualidade.</p>
+        </section>
+        <section id="sobre">
+            <h2>Sobre o Professor</h2>
+            <br>
+            <p>O Professor Kellton Rodrigo é um especialista em sua área com anos de experiência e uma paixão por ensinar. Conheça mais sobre sua trajetória e expertise.</p>
+        </section>
+        <section id="video">
+            <h2>Assista ao vídeo!</h2>
+            <br>
+            <video style="width: 100%; max-width: 600px; height: auto;" controls>
+                <source src="videos/Introdução do Site parte 2.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </section>
+        <section id="cursos">
+            <h2>Cursos Disponíveis</h2>
+            <br>
+
+            <div class="scrollbar">
+                <input type="range" min="0" max="100" value="0" id="scroll-bar">
+            </div>
+            <div class="course-carousel">
+                <div class="carousel-controls">
+                    <button class="arrow arrow-left" id="prev-button">&#9664;</button>
+                    <div class="carousel-wrapper">
+                        <div class="course-item">
+                            <a href="curso1text.html"><img src="imagensP/Tecnologia1.png" alt="Curso 1"></a>
+                            <span class="course-name">Informática Kids</span>
+                        </div>
+                        <div class="course-item">
+                            <a href="curso2text.html"><img src="imagensP/Tecnologia2.png" alt="Curso 2"></a>
+                            <span class="course-name">Games kids</span>
+                        </div>
+                        <div class="course-item">
+                            <a href="curso3text.html"><img src="imagensP/imagem-excel.webp" alt="Curso 3"></a>
+                            <span class="course-name">Excel</span>
+                        </div>
+                        <div class="course-item">
+                            <a href="curso4text.html"><img src="imagensP/imagem-powerpoin.png" alt="Curso 4"></a>
+                            <span class="course-name">Powerpoint</span>
+                        </div>
+                        <div class="course-item">
+                            <a href="curso5text.html"><img src="imagensP/Imagem-Word.png" alt="Curso 5"></a>
+                            <span class="course-name">Word</span>
+                        </div>
+                        <div class="course-item">
+                            <a href="curso6text.html"><img src="imagensP/Imagem-Seguranca-Digital.png" alt="Curso 6"></a>
+                            <span class="course-name">Segurança Digital</span>
+                        </div>
+                        <div class="course-item">
+                            <a href="curso7text.html"><img src="imagensP/Imagem-Multimidia.png" alt="Curso 7"></a>
+                            <span class="course-name">Multimídia</span>
+                        </div>
+                        <div class="course-item">
+                            <a href="curso8text.html" alt="Curso 8"><img src="imagensP/imagem-midias-sociais.png"></a>
+                            <span class="course-name">Mídias Sociais</span>
+                        </div>
+                        <div class="course-item">
+                            <a href="curso9text.html"><img src="imagensP/imagem-manutenção-de-computadores.png" alt="Curso 9"></a>
+                            <span class="course-name">Manutenção de Computadores</span>
+                        </div>
+                        <div class="course-item">
+                            <a href="curso10text.html"><img src="imagensP/Imagem-excel-avançado.webp" alt="Curso 10"></a>
+                            <span class="course-name">Excel Avançado</span>
+                        </div>
+                    </div>
+                    <button class="arrow arrow-right" id="next-button">&#9654;</button>
+                </div>
+            </div>
+        </section>
+        <!-- Catálogo de Vídeos -->
+    <section id="catalogo-videos">
+        <h2>Catálogo de Vídeos</h2>
+        <div class="video-gallery">
+            <div class="video-item">
+                <video controls>
+                    <source src="videos/Aula 1 modificada.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <span class="video-name">Aula 1</span>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="videos/Aula 2 F - Modificado.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <span class="video-name">Aula 2</span>
+            </div>
+            <!-- Continue para os outros vídeos até o vídeo 12 -->
+            <div class="video-item">
+                <video controls>
+                    <source src="videos/Aula 3 FF - Modificada.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <span class="video-name">Aula 3</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Após a seção de vídeos -->
+
+<section id="jogos">
+    <h2>Jogos</h2>
+    <p>Explore diferentes jogos educacionais para complementar seu aprendizado!</p>
+    <div class="game-buttons">
+        <button onclick="location.href='quebracabeça.html'">Jogar Quebra-Cabeça</button>
+        <button onclick="location.href='memoria.html'">Jogo da Memória</button>
+        <button onclick="location.href='quiz.html'">Quiz Interativo</button>
+        <button onclick="location.href='palavras.html'">Jogo de Palavras</button>
+        <!-- Adicione mais botões conforme necessário -->
+    </div>
+</section>
+
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Para mais informações, entre em contato conosco pelo e-mail: professor.kelltonr@gmail.com
+            </p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        const scrollBar = document.getElementById('scroll-bar');
+        const loadingAnimation = document.getElementById('loading-animation');
+
+        let isDragging = false;
+        let startX, scrollLeft;
+
+        // Função para iniciar a interação de arrastar
+        carouselWrapper.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - carouselWrapper.offsetLeft;
+            scrollLeft = carouselWrapper.scrollLeft;
+            loadingAnimation.style.display = 'block'; // Exibe animação de carregamento
+        });
+
+        // Função para arrastar
+        carouselWrapper.addEventListener('mouseleave', () => {
+            isDragging = false;
+            loadingAnimation.style.display = 'none'; // Oculta animação de carregamento
+        });
+
+        carouselWrapper.addEventListener('mouseup', () => {
+            isDragging = false;
+            loadingAnimation.style.display = 'none'; // Oculta animação de carregamento
+        });
+
+        carouselWrapper.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - carouselWrapper.offsetLeft;
+            const walk = (x - startX) * 2; // Aumenta a velocidade do arrasto
+            carouselWrapper.scrollLeft = scrollLeft - walk;
+        });
+
+        // Atualiza a posição da barra de rolagem
+        scrollBar.addEventListener('input', () => {
+            const maxScroll = carouselWrapper.scrollWidth - carouselWrapper.clientWidth;
+            const value = scrollBar.value;
+            carouselWrapper.scrollLeft = (value / 100) * maxScroll;
+        });
+
+        // Sincroniza a barra de rolagem com o carrossel
+        carouselWrapper.addEventListener('scroll', () => {
+            const maxScroll = carouselWrapper.scrollWidth - carouselWrapper.clientWidth;
+            const percentage = (carouselWrapper.scrollLeft / maxScroll) * 100;
+            scrollBar.value = percentage;
+        });
+
+        // Adicione código para lidar com os botões de navegação
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
+
+prevButton.addEventListener('click', () => {
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    const scrollLeft = carouselWrapper.scrollLeft;
+    carouselWrapper.scrollLeft = scrollLeft - 200; // ajuste o valor para o tamanho do item
+});
+
+nextButton.addEventListener('click', () => {
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    const scrollLeft = carouselWrapper.scrollLeft;
+    const maxScroll = carouselWrapper.scrollWidth - carouselWrapper.clientWidth;
+    carouselWrapper.scrollLeft = Math.min(scrollLeft + 200, maxScroll); // ajuste o valor para o tamanho do item
+});
+
+    </script>
+</body>
+</html>

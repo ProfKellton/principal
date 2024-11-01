@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Exercícios - Manutenção de Computadores</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <h1>Exercícios - Manutenção de Computadores</h1>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#cursos">Cursos</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+            <li><a href="index.html#jogos">Jogos</a></li>
+        </ul>
+    </nav>
+
+    <form id="quizForm">
+        <div class="question-container">
+            <div class="question-header">Questão 1</div>
+            <div class="question">
+                <p>Qual é a função da pasta térmica em um computador?</p>
+                <label><input type="radio" name="q1" value="a"> Proteger os circuitos elétricos</label>
+                <label><input type="radio" name="q1" value="b"> Ajudar na dissipação de calor entre o processador e o cooler</label>
+                <label><input type="radio" name="q1" value="c"> Melhorar a conectividade da placa-mãe</label>
+                <label><input type="radio" name="q1" value="d"> Facilitar a instalação de software</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 2</div>
+            <div class="question">
+                <p>Qual componente é responsável por fornecer energia elétrica para os componentes do computador?</p>
+                <label><input type="radio" name="q2" value="a"> Placa-mãe</label>
+                <label><input type="radio" name="q2" value="b"> Processador</label>
+                <label><input type="radio" name="q2" value="c"> Fonte de alimentação</label>
+                <label><input type="radio" name="q2" value="d"> HD</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 3</div>
+            <div class="question">
+                <p>Ao fazer a manutenção de um computador, qual é a importância de se utilizar uma pulseira antiestática?</p>
+                <label><input type="radio" name="q3" value="a"> Melhorar a performance do computador</label>
+                <label><input type="radio" name="q3" value="b"> Evitar choques elétricos no técnico</label>
+                <label><input type="radio" name="q3" value="c"> Facilitar a remoção de parafusos</label>
+                <label><input type="radio" name="q3" value="d"> Proteger os componentes contra descarga eletrostática</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 4</div>
+            <div class="question">
+                <p>O que significa o termo "formatação" no contexto de manutenção de computadores?</p>
+                <label><input type="radio" name="q4" value="a"> Aumento de memória RAM</label>
+                <label><input type="radio" name="q4" value="b"> Atualização do sistema operacional</label>
+                <label><input type="radio" name="q4" value="c"> Apagar todos os dados do disco e reinstalar o sistema operacional</label>
+                <label><input type="radio" name="q4" value="d"> Limpeza dos componentes internos</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 5</div>
+            <div class="question">
+                <p>Qual ferramenta é essencial para abrir a maioria dos gabinetes de computadores?</p>
+                <label><input type="radio" name="q5" value="a"> Chave de fenda</label>
+                <label><input type="radio" name="q5" value="b"> Martelo</label>
+                <label><input type="radio" name="q5" value="c"> Alicate</label>
+                <label><input type="radio" name="q5" value="d"> Chave inglesa</label>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button type="button" class="btn" onclick="submitAnswers()">Enviar Respostas</button>
+        </div>
+    </form>
+    <p><a href="index.html" class="btn">Voltar para a Página Inicial</a></p>
+    <footer>
+        <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function submitAnswers() {
+            const form = document.getElementById('quizForm');
+            const correctAnswers = {
+                q1: 'b', // Resposta correta para a Questão 1
+                q2: 'c', // Resposta correta para a Questão 2
+                q3: 'd', // Resposta correta para a Questão 3
+                q4: 'c', // Resposta correta para a Questão 4
+                q5: 'a'  // Resposta correta para a Questão 5
+            };
+
+            const userAnswers = {};
+            let score = 0;
+            let wrongAnswers = [];
+
+            for (let i = 1; i <= 5; i++) {
+                const question = `q${i}`;
+                const selectedOption = form[question].value;
+                userAnswers[question] = selectedOption;
+
+                if (selectedOption === correctAnswers[question]) {
+                    score++;
+                } else {
+                    wrongAnswers.push({question: i, correct: correctAnswers[question], user: selectedOption});
+                }
+            }
+
+            const percentage = (score / 5) * 100;
+
+            let resultContent = `
+                <div class="result">
+                    <h1>Resultado</h1>
+                    <p>Sua pontuação: <strong>${score} de 5 (${percentage}%)</strong></p>
+                    <h2>Questões Erradas:</h2>
+                    <ul>
+            `;
+
+            if (wrongAnswers.length === 0) {
+                resultContent += `<li><span class ="correct-answer">Parabéns! Você acertou todas as questões!</span></li>`;
+            } else {
+                resultContent += wrongAnswers.map(wrong => `
+                    <li>
+                        <span class="wrong-answer">Questão ${wrong.question}: 
+                        Sua resposta: ${wrong.user}, Correta: ${wrong.correct}</span>
+                    </li>
+                `).join('');
+            }
+
+            resultContent += `</ul></div>`;
+
+            document.body.innerHTML = resultContent;
+        }
+    </script>
+</body>
+</html>

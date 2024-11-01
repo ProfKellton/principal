@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Exercícios</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <h1>Exercícios - Excel</h1>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#cursos">Cursos</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+            <li><a href="index.html#jogos">Jogos</a></li>
+
+        </ul>
+    </nav>
+
+    <form id="quizForm">
+        <div class="question-container">
+            <div class="question-header">Questão 1</div>
+            <div class="question">
+                <p>Qual função é usada para somar um intervalo de células no Excel?</p>
+                <label><input type="radio" name="q1" value="a"> SOMAR()</label>
+                <label><input type="radio" name="q1" value="b"> CONTAR()</label>
+                <label><input type="radio" name="q1" value="c"> MÉDIA()</label>
+                <label><input type="radio" name="q1" value="d"> MÍNIMO()</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 2</div>
+            <div class="question">
+                <p>O que a função PROCV faz no Excel?</p>
+                <label><input type="radio" name="q2" value="a"> Procura um valor em uma linha</label>
+                <label><input type="radio" name="q2" value="b"> Procura um valor em uma coluna</label>
+                <label><input type="radio" name="q2" value="c"> Procura um valor em uma tabela e retorna um valor de uma coluna específica</label>
+                <label><input type="radio" name="q2" value="d"> Cria um gráfico</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 3</div>
+            <div class="question">
+                <p>Qual atalho de teclado é usado para salvar um arquivo no Excel?</p>
+                <label><input type="radio" name="q3" value="a"> Ctrl + P</label>
+                <label><input type="radio" name="q3" value="b"> Ctrl + S</label>
+                <label><input type="radio" name="q3" value="c"> Ctrl + C</label>
+                <label><input type="radio" name="q3" value="d"> Ctrl + Z</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 4</div>
+            <div class="question">
+                <p>Como você pode criar uma tabela no Excel rapidamente?</p>
+                <label><input type="radio" name="q4" value="a"> Selecionando as células e pressionando Ctrl + T</label>
+                <label><input type="radio" name="q4" value="b"> Usando o menu "Arquivo"</label>
+                <label><input type="radio" name="q4" value="c"> Inserindo dados manualmente</label>
+                <label><input type="radio" name="q4" value="d"> Usando a função TABELA()</label>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-header">Questão 5</div>
+            <div class="question">
+                <p>Qual é a função do recurso "Validação de Dados" no Excel?</p>
+                <label><input type="radio" name="q5" value="a"> Impedir a edição de células</label>
+                <label><input type="radio" name="q5" value="b"> Limitar o tipo de dados que podem ser inseridos em uma célula</label>
+                <label><input type="radio" name="q5" value="c"> Criar gráficos dinâmicos</label>
+                <label><input type="radio" name="q5" value="d"> Aplicar formatação condicional</label>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button type="button" class="btn" onclick="submitAnswers()">Enviar Respostas</button>
+        </div>
+    </form>
+    <p><a href="index.html" class="btn">Voltar para a Página Inicial</a></p>
+    <footer>
+        <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function submitAnswers() {
+            const form = document.getElementById('quizForm');
+            const correctAnswers = {
+                q1: 'a', // Resposta correta para a Questão 1
+                q2: 'c', // Resposta correta para a Questão 2
+                q3: 'b', // Resposta correta para a Questão 3
+                q4: 'a', // Resposta correta para a Questão 4
+                q5: 'b'  // Resposta correta para a Questão 5
+            };
+
+            const userAnswers = {};
+            let score = 0;
+            let wrongAnswers = [];
+
+            for (let i = 1; i <= 5; i++) { // Atualizado para 5 questões
+                const question = `q${i}`;
+                const selectedOption = form[question].value;
+                userAnswers[question] = selectedOption;
+
+                if (selectedOption === correctAnswers[question]) {
+                    score++;
+                } else {
+                    wrongAnswers.push({question: i, correct: correctAnswers[question], user: selectedOption});
+                }
+            }
+
+            const percentage = (score / 5) * 100; // Atualizado para 5 questões
+
+            let resultContent = `
+                <div class="result">
+                    <h1>Resultado</h1>
+                    <p>Sua pontuação: <strong>${score} de 5 (${percentage}%)</strong></p>
+                    <h2>Questões Erradas:</h2>
+                    <ul>
+            `;
+
+            if (wrongAnswers.length === 0) {
+                resultContent += `<li><span class="correct-answer">Parabéns! Você acertou todas as questões!</span></li>`;
+            } else {
+                resultContent += wrongAnswers.map(wrong => `
+                    <li>
+                        <span class="wrong-answer">Questão ${wrong.question}: 
+                        Sua resposta: ${wrong.user}, Correta: ${wrong.correct}</span>
+                    </li>
+                `).join('');
+            }
+
+            resultContent += `</ul></div>`;
+
+            document.body.innerHTML = resultContent;
+        }
+    </script>
+</body>
+</html>

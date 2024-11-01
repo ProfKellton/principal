@@ -1,0 +1,166 @@
+/* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1f36; /* Fundo padrão */
+    color: #e0e7ff; /* Cor de texto base */
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #1f2937; /* Azul escuro */
+    color: #e0e7ff; /* Texto claro */
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}
+
+/* Navegação */
+nav {
+    background-color: #3b506f; /* Azul intermediário */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para separação */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px; /* Espaçamento entre os itens */
+}
+
+nav ul li a {
+    color: #ffffff; /* Texto branco */
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold; /* Texto mais forte */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #64748b; /* Cor de fundo ao passar o mouse */
+    color: #e0e7ff; /* Cor do texto ao passar o mouse */
+}
+
+/* Imagem de Fundo */
+.background-image {
+    background-image: url(Tecnologia.png); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 20px;
+    text-align: center;
+    color: #ffffff; /* Cor de texto sobre a imagem */
+    position: relative;
+    z-index: 1;
+}
+
+.background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 31, 54, 0.75); /* Sobreposição escura para legibilidade */
+    z-index: -1;
+}
+
+.background-image h1 {
+    font-size: 3.0em;
+    font-family: 'Georgia', serif; /* Fonte com serifa para contraste */
+    margin-bottom: 20px;
+    color: #60a5fa; /* Azul claro para destaque */
+}
+
+.background-image p {
+    font-size: 1.8em;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: #e0e7ff; /* Texto branco suave */
+}
+
+/* Seção de Conteúdo */
+section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: rgba(26, 31, 54, 0.5); /* Fundo transparente para visibilidade da imagem */
+    color: #cbd5e1; /* Cor suave para o texto */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin: 20px auto;
+    max-width: 1200px; /* Limita a largura máxima */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda leve para definir a caixa */
+}
+
+section h2 {
+    font-size: 2.6em;
+    color: #60a5fa; /* Azul claro */
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 2.3em; /* Aumentado para melhor legibilidade */
+    line-height: 2; /* Aumentado para espaçamento mais agradável */
+    color: #e0e7ff; /* Mantém o texto branco suave */
+}
+
+section h3 {
+    font-size: 2.0em;
+    color: #c1d5ec; /* Azul claro */
+    margin-bottom: 20px;
+}
+
+/* Botões */
+.btn, .course-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #3b82f6; /* Azul vibrante */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    text-align: center;
+    gap: 15px; /* Espaço entre a imagem e o texto */
+}
+
+.course-button img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Transformar a imagem em um círculo */
+    transition: transform 0.3s ease;
+}
+
+.course-button:hover img {
+    transform: scale(1.1); /* Aumenta a imagem no hover */
+}
+
+.course-button span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Rodapé */
+footer {
+    background-color: #1f2937; /* Azul escuro */
+    color: #94a3b8; /* Cinza claro */
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}
